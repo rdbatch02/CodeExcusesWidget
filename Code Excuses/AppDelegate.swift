@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import SwiftHTTPOSX
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,7 +17,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        var request = HTTPTask();
+        request.GET("http://www.codingexcuses.com/?jsonp", parameters: nil, success: {(response: HTTPResponse) in
+            if response.responseObject != nil {
+                let data = response.responseObject as NSData
+                let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println(str)
+            }
+            }, failure: {(error: NSError) in
+                println("Error");
+        })
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
