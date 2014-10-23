@@ -14,23 +14,37 @@ import SwiftHTTPOSX
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
+    var excuse: String = ""
+    @IBOutlet weak var ExcuseText: NSTextField!
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        getNewExcuse()
+    }
+    
+    func getNewExcuse()
+    {
         var request = HTTPTask();
-        request.GET("http://www.codingexcuses.com/?jsonp", parameters: nil, success: {(response: HTTPResponse) in
-            if response.responseObject != nil {
-                let data = response.responseObject as NSData
-                let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-                println(str)
-            }
+        request.GET("http://www.codingexcuses.com/?jsonp", parameters: nil,
+            success: {(response: HTTPResponse) in
+                if response.responseObject != nil {
+                    let data = response.responseObject as NSData
+                    let str = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    self.setExcuse(String(str!)[20...str!.length-5])
+                }
             }, failure: {(error: NSError) in
                 println("Error");
         })
     }
+    
+    func setExcuse(value: String)
+    {
+        self.excuse = value
+        self.ExcuseText.stringValue = self.excuse
+    }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+        println(self.excuse)
     }
 
 

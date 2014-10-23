@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Code_Excuses" customModuleProvider="target">
             <connections>
+                <outlet property="ExcuseText" destination="Ojw-rm-1Vk" id="EGE-sB-fZo"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -669,15 +670,15 @@
         <window title="Code Excuses" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="596" height="112"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="contentRect" x="335" y="390" width="348" height="131"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="596" height="112"/>
+                <rect key="frame" x="0.0" y="0.0" width="348" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7k4-Dg-C70">
-                        <rect key="frame" x="279" y="48" width="38" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="HD3-OH-Tq9">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ojw-rm-1Vk">
+                        <rect key="frame" x="8" y="27" width="332" height="104"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="rij-hZ-cPf">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -685,7 +686,8 @@
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="554" y="532"/>
+            <point key="canvasLocation" x="430" y="541.5"/>
         </window>
+        <viewController id="SQH-nw-ihR"/>
     </objects>
 </document>
